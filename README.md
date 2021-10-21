@@ -151,5 +151,82 @@ Output
 print child class
 Second Func  from child-20
 
+```
+
+## Inheritance Simple Example
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+class Draw{
+    public: 
+    void get(){
+        cout<<"Called From Draw parent class to get params"<<endl;
+    };
+    void area(){
+        cout<<"Called From Draw parent class to print area"<<endl;
+    };
+};
+class square: public Draw{
+    public:
+        int a;
+        void get(){
+            cin>>a;
+        }
+        void area(){
+            cout<<a*a<<" Is area of Square called from square class"<<endl;
+        }
+
+};
+
+class triangle: public Draw{
+    public:
+    int base, height;
+    void get(){
+        cin>>base>>height;
+    }
+    void area(){
+        cout<<(base*height)/2<<" Area of triangle from triangle child class"<<endl;
+    }
+
+};
+
+class TriFromSqu: public square{
+    public:
+    void area(){
+        cout<<(a*a)/2<<" Area of Triangle from Triangle from Square "<<endl;
+    }
+
+};
+
+int main() {
+    Draw d;
+    d.get();
+    d.area();
+   
+
+    square s;
+    s.get();
+    s.area();
+
+    triangle t;
+    t.get();
+    t.area();
+
+    TriFromSqu ts;
+    ts.get();
+    ts.area();
+    
+
+}
+
+Output:-
+Called From Draw parent class to get params
+Called From Draw parent class to print area
+25 Is area of Square called from square class
+10 Area of triangle from triangle child class
+8 Area of Triangle from Triangle from Square 
+```
+
 
 
